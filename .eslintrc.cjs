@@ -11,6 +11,7 @@ module.exports = {
 		'plugin:jsx-a11y/recommended',
 		'plugin:@typescript-eslint/recommended',
 		'eslint-config-prettier',
+		'plugin:react-redux/recommended',
 	],
 	settings: {
 		react: {
@@ -25,11 +26,12 @@ module.exports = {
 	},
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
-	plugins: ['react-refresh'],
+	plugins: ['react-refresh', 'react-redux'],
 	rules: {
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-unused-vars': 'warn',
 		'react/react-in-jsx-scope': 'off',
 		'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+		'react-redux/useSelector-prefer-selectors': 'off',
 	},
 };
