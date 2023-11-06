@@ -22,7 +22,7 @@ export function Player() {
 					<VideoPlayer />
 					<aside className="scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-800 absolute bottom-0 right-0 top-0 w-80 divide-y-2 divide-zinc-900 overflow-y-scroll border-l border-zinc-800 bg-zinc-900">
 						{modules.map((mod, index) => {
-							return <Module key={mod.id} index={index} title={mod.title} lessonsAmount={mod.lessons.length} />;
+							return <Module key={mod.id} moduleIndex={index} title={mod.title} lessonsAmount={mod.lessons.length} />;
 						})}
 					</aside>
 				</main>
