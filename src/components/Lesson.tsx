@@ -1,6 +1,6 @@
 import { PlayCircle, Video } from 'lucide-react';
-import { useDispatch } from 'react-redux';
 import { play } from '../store/slices/player';
+import { useAppDispatch } from '../store';
 
 interface Props {
 	title: string;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function Lesson({ title, duration, onPlay, isCurrent = false }: Props) {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	function handlePlayLesson() {
 		dispatch(play([0, 0]));
