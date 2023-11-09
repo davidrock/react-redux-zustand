@@ -49,6 +49,7 @@ const mockInitialState: PlayerState = {
 			},
 		],
 	},
+	isLoading: true,
 	currentModuleIndex: 0,
 	currentLessonIndex: 0,
 };
