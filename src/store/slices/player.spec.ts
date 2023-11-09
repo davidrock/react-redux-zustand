@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { next, play, playerSlice, player as reducer } from './player';
+import { next, play, player as reducer } from './player';
 
 describe('player slice', () => {
 	it('should be able to play', () => {
