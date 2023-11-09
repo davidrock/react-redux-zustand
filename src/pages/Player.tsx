@@ -3,9 +3,16 @@ import { Header } from '../components/Header';
 import { VideoPlayer } from '../components/VideoPlayer';
 import { Module } from '../components/Module';
 import { useAppSelector } from '../store';
+import { useCurrentLesson } from '../store/slices/player';
+import { useEffect } from 'react';
 
 export function Player() {
 	const modules = useAppSelector((state) => state.player.course.modules);
+	const { currentLesson } = useCurrentLesson();
+
+	useEffect(() => {
+		document.title = `Assistindo ${currentLesson.title}`;
+	}, [currentLesson]);
 
 	return (
 		<div className="flex h-screen items-center justify-center bg-zinc-950 text-zinc-50">
@@ -20,7 +27,7 @@ export function Player() {
 
 				<main className="relative flex overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900 pr-80 shadow">
 					<VideoPlayer />
-					<aside className="scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-800 absolute bottom-0 right-0 top-0 w-80 divide-y-2 divide-zinc-900 overflow-y-scroll border-l border-zinc-800 bg-zinc-900">
+					<aside className="absolute bottom-0 right-0 top-0 w-80 divide-y-2 divide-zinc-900 overflow-y-scroll border-l border-zinc-800 bg-zinc-900 scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-800">
 						{modules.map((mod, index) => {
 							return <Module key={mod.id} moduleIndex={index} title={mod.title} lessonsAmount={mod.lessons.length} />;
 						})}
