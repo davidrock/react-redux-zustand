@@ -10,6 +10,8 @@ export function VideoPlayer() {
 		dispatch(next());
 	}
 
+	if (!currentLesson) return null;
+
 	return (
 		<div className="aspect-video flex-1">
 			<ReactPlayer

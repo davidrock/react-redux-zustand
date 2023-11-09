@@ -13,7 +13,7 @@ export function Lesson({ title, duration, onPlay, isCurrent = false }: Props) {
 	const dispatch = useDispatch();
 
 	function handlePlayLesson() {
-		dispatch(play('teste'));
+		dispatch(play([0, 0]));
 	}
 
 	return (
@@ -21,7 +21,7 @@ export function Lesson({ title, duration, onPlay, isCurrent = false }: Props) {
 			<button
 				onClick={onPlay}
 				disabled={isCurrent}
-				className="enabled:hover:text-zinc-100 flex items-center gap-3 text-sm text-zinc-400 data-[active=true]:text-emerald-400"
+				className="flex items-center gap-3 text-sm text-zinc-400 data-[active=true]:text-emerald-400 enabled:hover:text-zinc-100"
 				data-active={isCurrent}
 			>
 				{isCurrent ? <PlayCircle className="h-4 w-4 text-emerald-400" /> : <Video className="h-4 w-4 text-zinc-500" />}
